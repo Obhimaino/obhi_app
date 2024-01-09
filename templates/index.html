@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Topic Modelling Prediction</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="card mt-3" style="width: 50%;margin: auto;">
+        <div class="card-header">
+          <center><h2>Predict Using Topic Modelling</h2></center>
+        </div>
+
+        <div class="card-body">
+         <form action="/predict" method="POST">
+          <div class="form-group mt-3">
+            <label for=""><strong>TITLE</strong></label>
+            <input type="text" class="form-control" name="title" placeholder="Enter The Title">
+          </div>
+          <div class="form-group mt-3">
+            <label for=""><strong>ABSTRACT</strong></label>
+            <input type="text" class="form-control" name="abstract" placeholder="Enter The Abstract">
+          </div>
+          <center>
+             <button class="btn btn-primary mt-3" type="submit">Predict</button>
+          </center>
+         </form>
+        </div>
+      </div>
+
+      <div class="container mt-3">
+        <div class="card" style="width: 70%;margin: auto;">
+          <div class="card-header text-center">
+             <h2>The Prediction Result</h2>
+          </div>
+          <div class="card-body">
+            {% if prediction %}
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Computer Science</th>
+                  <th>Physics</th>
+                  <th>Mathematics</th>
+                  <th>Statistics</th>
+                  <th>Quantitative Biology</th>
+                  <th>Quantitative Finance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {% for item in prediction.values() %}
+                  <td>{{ item[0] }}</td>
+                  <td>{{ item[1] }}</td>
+                  <td>{{ item[2] }}</td>
+                  <td>{{ item[3] }}</td>
+                  <td>{{ item[4] }}</td>
+                  <td>{{ item[5] }}</td>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+            {% else %}
+            <p>No prediction available.</p>
+            {% endif %}
+          </div>
+        </div>
+        
+      </div>
+
+
+
+    </div>
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+  </body>
+</html>
