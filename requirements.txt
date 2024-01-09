@@ -154,6 +154,7 @@ urllib3==2.1.0
 vaderSentiment==3.3.2
 wcwidth==0.2.12
 webcolors==1.13
+pip3
 webencodings==0.5.1
 websocket-client==1.7.0
 Werkzeug==3.0.1
