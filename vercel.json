@@ -1,14 +1,1 @@
-{
-    "builds":[
-        {
-            "src":"app_obhi.py",
-            "use":"@vercel/python"
-        }
-    ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"app_obhi.py"
-        }
-    ]
-}
+
